@@ -1,4 +1,4 @@
 *, *::before, *::after {
     box-sizing: border-box;
-    font-family: GothamMediumRegular; src: url(GothamMediumRegular.ttf)
+    font-family: GothamMediumRegular; src: url(GothamMediumRegular.ttf);
 }
