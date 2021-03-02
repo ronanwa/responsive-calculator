@@ -241,6 +241,6 @@ deleteButton.addEventListener('click', button => {
 
 db.collection("calculations").onSnapshot(() => {
     calculator.firestoreGetCalculations()
-})
+});
 
 
