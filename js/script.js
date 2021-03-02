@@ -145,10 +145,10 @@ class Calculator {
             // calculations.sort((a, b) => (a.timestamp > b.timestamp) ? 1 : -1 )
 
             // Check length of set, no more than 10 calculations!
-            // while (calculations.length > 10) {
-            //     this.firestoreRemoveCalculation(calculations[0].documentID)
-            //     calculations.splice(0, 1)
-            // }
+            while (calculations.length > 10) {
+                this.firestoreRemoveCalculation(calculations[0].documentID)
+                calculations.splice(0, 1)
+            }
 
             this.updateHistory(calculations)
         });
