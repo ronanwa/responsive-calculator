@@ -10,37 +10,40 @@ Author: Ronan Wallace
     <meta name="author" content="Ronan Wallace">
     <meta name="description" content="Calculator App">
     <meta name="theme-color" content="#00FFFF"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <link href="css/stylesheet.css" type="text/css" rel="stylesheet"/>
     <title>Calculator</title>
 </head>
 
 <body>
-    <h1>Under Construction, woohoo!</h1>
-    <p>Here is a test paragraph about updating.</p>
-
     <div class="calculator-format">
         <div class="output">
-            <div class="last-op"></div>
-            <div class="current-op"></div>
+            <div data-last-op class="last-op"></div>
+            <div data-current-op class="current-op"></div>
         </div>
-        <button class="span-two">AC</button>
-        <button>DEL</button>
-        <button>÷</button>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>*</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>+</button>
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>-</button>
-        <button>.</button>
-        <button>0</button>
-        <button class="span-two">=</button>
+        <button data-ac class="span-two">AC</button>
+        <button data-del>DEL</button>
+        <button data-op>÷</button>
+        <button data-num>1</button>
+        <button data-num>2</button>
+        <button data-num>3</button>
+        <button data-op>*</button>
+        <button data-num>4</button>
+        <button data-num>5</button>
+        <button data-num>6</button>
+        <button data-op>+</button>
+        <button data-num>7</button>
+        <button data-num>8</button>
+        <button data-num>9</button>
+        <button data-op>-</button>
+        <button data-num>.</button>
+        <button data-num>0</button>
+        <button data-equals class="span-two">=</button>
+    </div>
+    <div class="history">
+        <div class="history-title">Calculation History</div>
+        <div data-history class="user-calculation"></div>
     </div>
 
 
@@ -52,14 +55,11 @@ Author: Ronan Wallace
 
 <!-- My scripting -->
 <script src="js/script.js"></script>
-
 <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
-
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script><!-- Add SDKs for Firebase products that you want to use https://firebase.google.com/docs/web/setup#available-libraries -->
+<!--<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>-->
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
 <script>
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -70,11 +70,13 @@ Author: Ronan Wallace
         storageBucket: "responsive-calculator-edbcb.appspot.com",
         messagingSenderId: "128657195327",
         appId: "1:128657195327:web:43390c08056dbc36e2938a",
-        measurementId: "G-ZPYZZLLMY6"
+        // measurementId: "G-ZPYZZLLMY6"
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
+    // firebase.analytics();
+    // firebase.auth();
+    var db = firebase.firestore();
 </script>
 
 
