@@ -197,10 +197,6 @@ window.onload = function() {
     calculator.firestoreGetCalculations()
 };
 
-db.collection("calculations").onSnapshot(() => {
-    calculator.firestoreGetCalculations()
-})
-
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         if (x == 1) {
@@ -241,6 +237,10 @@ allClearButton.addEventListener('click', button => {
 deleteButton.addEventListener('click', button => {
     calculator.delete()
     calculator.updateOutput()
+})
+
+db.collection("calculations").onSnapshot(() => {
+    calculator.firestoreGetCalculations()
 })
 
 
