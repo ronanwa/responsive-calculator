@@ -139,7 +139,10 @@ class Calculator {
             });
 
             // Sort to ascending order
-            calculations.sort((a, b) => (a.timestamp > b.timestamp) ? 1 : -1 )
+            calculations.sort(function(a, b) {
+                return a.timestamp - b.timestamp;
+            });
+            // calculations.sort((a, b) => (a.timestamp > b.timestamp) ? 1 : -1 )
 
             // Check length of set, no more than 10 calculations!
             while (calculations.length > 10) {
